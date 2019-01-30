@@ -1,5 +1,8 @@
 image: Visual Studio 2017
 
-before_build: cd win\CS
+before_build: 
+ - git submodule update --init --recursive
+ - cd win\CS
 
-build_script: msbuild HandBrake.sln
+build: 
+  project: msbuild HandBrake.sln
