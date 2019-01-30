@@ -1,5 +1,13 @@
 image: Visual Studio 2017
 
+platform:
+  - x86
+  - Any CPU
+
+configuration:
+  - Debug
+  - Release
+
 before_build: 
  - git submodule update --init --recursive
 
