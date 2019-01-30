@@ -1,3 +1,6 @@
 image: Visual Studio 2017
 
-build_script: msbuild win/CS/HandBrake.sln
+before_build: cd win\CS
+
+build_script: 
+ - project: HandBrake.sln
