@@ -7,5 +7,4 @@ configuration:
 before_build: 
  - git submodule update --init --recursive
 
-build: 
-  project: win\CS\HandBrake.sln
+build_script: msbuild win\CS\build.xml
