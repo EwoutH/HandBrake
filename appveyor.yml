@@ -1,0 +1,11 @@
+image: Visual Studio 2017
+
+configuration:
+  - Debug
+  - Release
+
+before_build: 
+ - git submodule update --init --recursive
+
+build: 
+  project: win\CS\HandBrake.sln
