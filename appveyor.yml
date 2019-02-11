@@ -4,6 +4,8 @@ configuration:
   - Debug
   - Release
 
+install: paket add Newtonsoft.Json
+
 before_build: 
  - git submodule update --init --recursive
 
