@@ -51,6 +51,10 @@ jobs:
         ./configure --cross=x86_64-w64-mingw32 --enable-qsv --enable-vce --enable-nvenc --launch-jobs=$(nproc) --launch
         cd build
         make pkg.create.zip
+    - uses: actions/upload-artifact@v1
+      with:
+        name: HandBrake Windows CLI
+        path: ./build/**/*.exe
 
   build_gui:
     name: Windows UI
@@ -80,3 +84,7 @@ jobs:
       run: |      
         $env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
         msbuild win\cs\build.xml /t:Nightly
+    - uses: actions/upload-artifact@v1
+      with:
+        name: HandBrake Windows GUI
+        path: ./win/**/*.exe
