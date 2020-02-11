@@ -36,5 +36,5 @@ jobs:
         make pkg.create
     - uses: actions/upload-artifact@v1
       with:
-        name: HandBrake Windows GUI
-        path: ./win/**/*.dmg
+        name: macOS
+        path: ./build
