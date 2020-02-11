@@ -53,7 +53,7 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: HandBrake Windows CLI
-        path: ./build/**/*.exe
+        path: ./build
 
   build_gui:
     name: Windows UI
@@ -85,4 +85,4 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: HandBrake Windows GUI
-        path: ./win/**/*.exe
+        path: ./win
