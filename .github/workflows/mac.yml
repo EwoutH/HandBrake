@@ -6,7 +6,6 @@ jobs:
   handle_forks:
     name: Forked Repo
     runs-on: ubuntu-latest
-    if: github.repository != 'HandBrake/HandBrake'
     steps:
     - name: Print Warning
       run: |
@@ -36,3 +35,7 @@ jobs:
         ./configure --launch-jobs=$(sysctl -n hw.ncpu) --launch
         cd build
         make pkg.create
+    - uses: actions/upload-artifact@v1
+      with:
+        name: HandBrake Windows GUI
+        path: ./win/**/*.dmg
