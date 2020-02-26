@@ -52,8 +52,12 @@ jobs:
         make pkg.create.zip
     - uses: actions/upload-artifact@v1
       with:
+        name: HandBrake Windows hb.dll
+        path: ./build/libhb/hb.dll
+    - uses: actions/upload-artifact@v1
+      with:
         name: HandBrake Windows CLI
-        path: ./build/bin
+        path: ./build/HandBrakeCLI.exe
 
   build_gui:
     name: Windows UI
