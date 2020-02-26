@@ -51,8 +51,8 @@ jobs:
         cd build
         make pkg.create.zip
         tree
-        tree \build
-        tree .\build
+        tree /build
+        tree ./build
     #- uses: actions/upload-artifact@v1
     #  with:
     #    name: HandBrake Windows CLI
