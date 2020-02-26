@@ -21,7 +21,7 @@ jobs:
     - name: Environment Setup
       run: |
         sudo apt-get install automake autoconf build-essential cmake curl gcc git intltool libtool libtool-bin m4 make nasm patch pkg-config python tar yasm zlib1g-dev ninja-build zip
-        sudo apt-get install bison bzip2 flex g++ gzip pax
+        sudo apt-get install bison bzip2 flex g++ gzip pax tree
         sudo apt-get install python3-pip
         sudo apt-get install python3-setuptools
         sudo pip3 install meson
@@ -50,10 +50,11 @@ jobs:
         ./configure --cross=x86_64-w64-mingw32 --enable-qsv --enable-vce --enable-nvenc --launch-jobs=$(nproc) --launch
         cd build
         make pkg.create.zip
-    - uses: actions/upload-artifact@v1
-      with:
-        name: HandBrake Windows CLI
-        path: ./build
+        tree /build
+    #- uses: actions/upload-artifact@v1
+    #  with:
+    #    name: HandBrake Windows CLI
+    #    path: ./build
 
   build_gui:
     name: Windows UI
@@ -85,4 +86,4 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: HandBrake Windows GUI
-        path: ./win
+        path: ./win/CS/HandBrakeWPF/bin/x64/Release
