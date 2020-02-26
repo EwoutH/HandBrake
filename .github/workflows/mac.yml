@@ -34,10 +34,7 @@ jobs:
         ./configure --launch-jobs=$(sysctl -n hw.ncpu) --launch
         cd build
         make pkg.create
-        brew install tree
-        tree
-        tree /build
-    #- uses: actions/upload-artifact@v1
-    #  with:
-    #    name: macOS
-    #    path: ./build/macOS/pkg
+    - uses: actions/upload-artifact@v1
+      with:
+        name: macOS
+        path: ./build/pkg
