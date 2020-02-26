@@ -89,7 +89,7 @@ jobs:
     - name: Copy HandBrake libary
       run: | 
         cd ../..
-        copy ./build/libhb/hb.dll ./win/CS/HandBrakeWPF/bin/x64/Release/hb.dll
+        copy build\libhb\hb.dll win\CS\HandBrakeWPF\bin\x64\Release\hb.dll
     - uses: actions/upload-artifact@v1
       with:
         name: HandBrake Windows GUI
