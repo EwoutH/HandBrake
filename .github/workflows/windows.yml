@@ -50,13 +50,10 @@ jobs:
         ./configure --cross=x86_64-w64-mingw32 --enable-qsv --enable-vce --enable-nvenc --launch-jobs=$(nproc) --launch
         cd build
         make pkg.create.zip
-        tree
-        tree /bin
-        tree ./bin
-    #- uses: actions/upload-artifact@v1
-    #  with:
-    #    name: HandBrake Windows CLI
-    #    path: ./build
+    - uses: actions/upload-artifact@v1
+      with:
+        name: HandBrake Windows CLI
+        path: ./build/bin
 
   build_gui:
     name: Windows UI
