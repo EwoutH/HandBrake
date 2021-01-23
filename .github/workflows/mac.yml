@@ -3,6 +3,9 @@ on: [push, pull_request]
 
 jobs:
   build:
+    strategy:
+      matrix:
+        jobs: [1, 2, 3, 4, 5, 6]
     name: Build on macOS
     runs-on: macos-11.0
     steps:
@@ -25,7 +28,7 @@ jobs:
       run: ./configure && cd build
 
     - name: Build HandBrake
-      run: make ub
+      run: make ub -j${{ matrix.jobs }}
 
     - name: Package handbrake
       run: make pkg.create
