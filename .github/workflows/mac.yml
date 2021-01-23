@@ -1,5 +1,4 @@
 name: macOS build
-
 on: [push, pull_request]
 
 jobs:
@@ -14,7 +13,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: /usr/local
-        key: mac-toolchain
+        key: mac-toolchain-${{ hashFiles('scripts/mac-toolchain-build') }}
 
     - name: Setup Environment
       if: steps.mac-toolchain.outputs.cache-hit != 'true'
