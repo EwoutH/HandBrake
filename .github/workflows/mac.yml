@@ -25,7 +25,7 @@ jobs:
       run: scripts/mac-toolchain-build /usr/local
 
     - name: Configure HandBrake
-      run: ./configure && cd build
+      run: ./configure && cd ./build
 
     - name: Build HandBrake
       run: make ub -j${{ matrix.jobs }}
