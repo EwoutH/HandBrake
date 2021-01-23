@@ -7,6 +7,8 @@ jobs:
     runs-on: macos-11.0
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: true
 
     - name: Toolchain Cache
       id: mac-toolchain
@@ -17,15 +19,16 @@ jobs:
 
     - name: Setup Environment
       if: steps.mac-toolchain.outputs.cache-hit != 'true'
-      run: |
-        scripts/mac-toolchain-build /usr/local
+      run: scripts/mac-toolchain-build /usr/local
+
+    - name: Configure HandBrake
+      run: ./configure && cd build
 
     - name: Build HandBrake
-      run: |
-        git submodule update --init --recursive
-        ./configure
-        cd build
-        make ub && make pkg.create
+      run: make ub
+
+    - name: Package handbrake
+      run: make pkg.create
 
     - name: Upload Assets
       uses: actions/upload-artifact@v2
